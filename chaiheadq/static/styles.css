@@ -1,0 +1,133 @@
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    border-bottom: 2px solid #dee2e6;
+    width: 100%; /* Ensures the image takes up the full width of the card */
+    height: 200px; /* Adjust height as needed */
+    object-fit: cover; /* Ensures the image covers the dimensions */
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* .card-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+.card-text {
+    line-height: 1.6em; /* Adjust based on your desired line height */
+    max-height: 3.2em; /* Show only approximately 2 lines of text */
+    overflow: hidden;
+    position: relative;
+}
+
+.card-text::after {
+    content: '...'; /* Optional: shows ellipsis to indicate more text */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    padding-left: 10px;
+}
+.card-title{
+    line-height: 1.6em; /* Adjust based on your desired line height */
+    max-height: 3.2em; /* Show only approximately 2 lines of text */
+    overflow: hidden;
+    position: relative;
+
+}
+.card-title::after{
+    content: '...'; /* Optional: shows ellipsis to indicate more text */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    padding-left: 10px;
+
+}
+
+
+.btn {
+    margin-right: 0.5rem;
+}
+
+.container {
+    padding-top: 20px;
+}
+/* media-query */
+@media (min-width: 1200px) {
+    .card-img-top {
+        height: 250px; /* Larger image height for larger screens */
+    }
+
+    .card-title {
+        font-size: 1.5rem; /* Larger title font size */
+    }
+}
+
+/* For devices 992px to 1199px (Tablets and smaller desktops) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .card-img-top {
+        height: 220px; /* Adjust image height for medium screens */
+    }
+
+    .card-title {
+        font-size: 1.25rem; /* Medium title font size */
+    }
+}
+
+/* For devices 768px to 991px (Tablets in portrait mode and smaller tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .card-img-top {
+        height: 200px; /* Adjust image height for smaller screens */
+    }
+
+    .card-title {
+        font-size: 1.1rem; /* Smaller title font size */
+    }
+    .btn-datewise{
+        display: none;
+    }
+
+    
+}
+
+/* For devices smaller than 768px (Mobile devices) */
+@media (max-width: 767px) {
+    .card-img-top {
+        height: 180px; /* Adjust image height for mobile screens */
+    }
+
+    .card-title {
+        font-size: 1rem; /* Smaller title font size */
+    }
+    .btn-datewise{
+        display: none;
+    }
+   
+    } 
+  
+    /* for highlight heading of news */
+    /* General Styles */

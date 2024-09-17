@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    NewsApp
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center mt-4">Welcome to NewsApp</h1>
+    {% comment %} <h1 class="text-center mt-4 typing-effect">Welcome to <span class="highlight">NewsApp</span></h1> {% endcomment %}
+
+    <div class="container">
+        <div class="row">
+            {% for tweet in tweets %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ tweet.photo.url }}" class="card-img-top" alt="Tweet Photo">
+                        <div class="card-body">
+                            <a href="/newsdetail/{{ tweet.slug }}">
+                                <h5 class="card-title">{{ tweet.title }}</h5>
+                            </a>
+                            <p class="card-text">{{ tweet.text }}</p>
+                           
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReadMore Detail</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-custom {
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 4px;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            transition: background-color 0.3s ease;
+        }
+        .back-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index:1000;
+        }
+        .card-img-top {
+            width: 100%;
+            height: auto;
+            object-fit: cover; /* Ensures image maintains aspect ratio and covers the dimensions */
+            display: block;
+            margin: 0 auto; /* Centers the image horizontally */
+        }
+        .card-body {
+            text-align: center; /* Center the text within the card body */
+        }
+        {% comment %} media_query {% endcomment %}
+        @media (min-width: 1200px) {
+            .card-img-top {
+                width: 750px; /* Larger image width for larger screens */
+                height: 375px; /* Larger image height */
+            }
+        }
+        
+        /* For devices 992px to 1199px (Tablets and smaller desktops) */
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .card-img-top {
+                width: 100%; /* Adjust image width for medium screens */
+                height: auto; /* Adjust height to maintain aspect ratio */
+            }
+        }
+        
+        /* For devices 768px to 991px (Tablets in portrait mode and smaller tablets) */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .card-img-top {
+                width: 100%; /* Ensure the image takes full width */
+                height: auto; /* Adjust height automatically */
+            }
+        
+            .back-button {
+                top: 10px; /* Adjust top position for smaller screens */
+                right: 10px; /* Adjust right position for smaller screens */
+            }
+        }
+        
+        /* For devices smaller than 768px (Mobile devices) */
+        @media (max-width: 767px) {
+            .card-img-top {
+                width: 100%; /* Ensure the image takes full width */
+                height: auto; /* Adjust height automatically */
+            }
+        
+            .back-button {
+                top: 24px; /* Adjust top position for mobile screens */
+                right: 15px; /* Adjust right position for mobile screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container for the content -->
+    <div class="container mt-4">
+        <a href="{% url 'tweet_list' %}" class="btn btn-secondary back-button">Back</a>
+        <!-- Card to display tweet details -->
+        <div class="card">
+            <!-- Check if the photo exists and is valid -->
+            {% if newsdetail.photo %}
+                <img src="{{ newsdetail.photo.url }}" class="card-img-top" alt="Tweet photo">
+            {% else %}
+                <img src="https://via.placeholder.com/750x375" class="card-img-top" alt="Placeholder image">
+            {% endif %}
+            
+            <div class="card-body">
+                <!-- Title of the tweet -->
+                <h5 class="card-title">{{ newsdetail.title }}</h5>
+                <!-- Text content of the tweet -->
+                <p class="card-text">{{ newsdetail.text }}</p>
+                <div style="border: 1px solid #ddd; padding: 10px; width: 300px; background-color: #f9f9f9;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <span style="font-weight: bold;">Date:</span>
+                        <span style="font-weight: normal; color: #555;">{{newsdetail.created_at}}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold;">By:</span>
+                        <span style="font-weight: lighter; color: #777;">{{newsdetail.user}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional for additional functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
