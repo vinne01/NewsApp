@@ -1,6 +1,14 @@
 # NewsApp
 
 Welcome to NewsApp, a Django-based application where users can read the latest news, search for news by topic, description, and date, and contact us if they encounter issues or incorrect news. This app also includes administrative features for managing news content with a team of members.
+# My Project
+
+Here is a great video about my project:
+
+[Watch the video here](https://streamable.com/ti4c6x)
+
+
+
 
 ## Features
 
